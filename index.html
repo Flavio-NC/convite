@@ -25,11 +25,6 @@
       align-items: center;
     }
 
-    #nao {
-      position: absolute;
-      display: none;
-    }
-
     .btn {
       margin-top: 20px;
       padding: 10px 20px;
@@ -44,7 +39,7 @@
 </head>
 <body>
   <div class="container">
-    <h2>Vamos ficar hoje?</h2>
+    <h2>Ei, Casa comigo?</h2>
     <button id="sim" class="btn">Sim</button>
     <button id="nao" class="btn">Não</button>
   </div>
@@ -59,11 +54,11 @@
       
       naoButton.style.left = randomX + "px";
       naoButton.style.top = randomY + "px";
-      naoButton.style.display = "block";
+      naoButton.style.position = "absolute";
     });
 
     document.getElementById("sim").addEventListener("click", () => {
-      window.location.href = "confirmacao.html";
+      window.location.href = "conf.html";
     });
   </script>
 </body>
