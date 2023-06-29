@@ -1,49 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Convite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       background-color: black;
       color: white;
-      text-align: center;
       font-size: 24px;
+      text-align: center;
     }
+
     h2 {
-      font-size: 1.5em;
+      font-size: 36px;
     }
-    button {
-      background-color: white;
-      color: blue;
-      border: none;
-      border-radius: 5px;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #nao {
+      position: absolute;
+      display: none;
+    }
+
+    .btn {
+      margin-top: 20px;
       padding: 10px 20px;
-      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      font-size: 24px;
+      color: blue;
+      background-color: white;
       cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <h2>Vamos ficar hoje?</h2>
-  <button id="btn-yes" onclick="openConfirmationPage()">Sim</button>
-  <button id="btn-no" onmouseover="moveButton()">Não</button>
+  <div class="container">
+    <h2>Vamos ficar hoje?</h2>
+    <button id="sim" class="btn">Sim</button>
+    <button id="nao" class="btn">Não</button>
+  </div>
 
   <script>
-    function openConfirmationPage() {
-      window.location.href = 'confirmacao.html';
-    }
+    const naoButton = document.getElementById("nao");
+    const container = document.querySelector(".container");
 
-    function moveButton() {
-      var buttonNo = document.getElementById('btn-no');
-      var screenWidth = window.innerWidth;
-      var screenHeight = window.innerHeight;
-      var randomX = Math.floor(Math.random() * screenWidth);
-      var randomY = Math.floor(Math.random() * screenHeight);
+    naoButton.addEventListener("click", () => {
+      const randomX = Math.floor(Math.random() * (window.innerWidth - naoButton.offsetWidth));
+      const randomY = Math.floor(Math.random() * (window.innerHeight - naoButton.offsetHeight));
       
-      buttonNo.style.position = 'absolute';
-      buttonNo.style.left = randomX + 'px';
-      buttonNo.style.top = randomY + 'px';
-    }
+      naoButton.style.left = randomX + "px";
+      naoButton.style.top = randomY + "px";
+      naoButton.style.display = "block";
+    });
+
+    document.getElementById("sim").addEventListener("click", () => {
+      window.location.href = "confirmacao.html";
+    });
   </script>
 </body>
 </html>
