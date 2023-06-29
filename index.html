@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Convite</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      text-align: center;
+    }
+    h2 {
+      font-size: 24px;
+    }
+    #buttons-container {
+      position: relative;
+    }
+    .button {
+      background-color: white;
+      color: blue;
+      border-radius: 5px;
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    #nao-button {
+      position: absolute;
+    }
+  </style>
+  <script>
+    function moveButton() {
+      var container = document.getElementById('buttons-container');
+      var button = document.getElementById('nao-button');
+      var containerRect = container.getBoundingClientRect();
+      var randomLeft = Math.random() * (containerRect.width - button.offsetWidth);
+      var randomTop = Math.random() * (containerRect.height - button.offsetHeight);
+      button.style.left = randomLeft + 'px';
+      button.style.top = randomTop + 'px';
+    }
+
+    function openConfirmationPage() {
+      window.location.href = 'confirmacao.html';
+    }
+
+  </script>
+</head>
+<body>
+  <h2>Vamos ficar hoje?</h2>
+  <div id="buttons-container">
+    <button class="button" onclick="openConfirmationPage()">Sim</button>
+    <button id="nao-button" class="button" onmouseover="moveButton()">Não</button>
+  </div>
+</body>
+</html>
